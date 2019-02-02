@@ -17,6 +17,7 @@ public class LoginTests {
 
     ChromeDriver driver;
 
+    // this process to setup the browser
    @BeforeClass
    public void setup(){
 
@@ -28,7 +29,7 @@ public class LoginTests {
 
    }
 
-
+        // this process to logIn to the WebPage
         @Test
 
                 public void loginTest1(){
@@ -39,7 +40,7 @@ public class LoginTests {
             Assert.assertEquals(driver.getTitle(),"Web Orders");
 
         }
-
+                // this process to logout of the WebPage
         @Test
         public void logOutTest(){
 
@@ -53,11 +54,21 @@ public class LoginTests {
         }
 
         @AfterMethod
-
+                // this process to close the browser
             public void cleanUp(){
 
             driver.close();
 
+        }
+
+        @Test
+    public void negativeLogIn(){
+
+        loginTest1();
+
+        String errorMsg = driver.findElement(By.id("ctl00_MainContent_status")).getText();
+
+        Assert.assertEquals(errorMsg,"Invalid Login or Password");
         }
 
 }
