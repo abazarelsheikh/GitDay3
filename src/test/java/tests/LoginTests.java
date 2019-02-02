@@ -40,6 +40,17 @@ public class LoginTests {
 
         }
 
+        @Test
+        public void logOutTest(){
+
+            loginTest1();
+
+            driver.findElement(By.id("ctl00_logout")).click();
+
+            Assert.assertEquals(driver.getTitle(),"Web Orders Login");
+
+        }
+
         @AfterMethod
 
             public void cleanUp(){
