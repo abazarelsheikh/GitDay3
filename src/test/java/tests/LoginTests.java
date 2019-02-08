@@ -12,7 +12,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
-
+// login tests are maintained here.
+//without Page object approch
 public class LoginTests {
 
     ChromeDriver driver;
@@ -60,14 +61,15 @@ public class LoginTests {
 
         }
 
-        @Test
-    public void negativeLogIn(){
 
-        loginTest1();
-
+    @Test
+    public void negativeloginTest() {
+        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester2");
+        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test2" + Keys.ENTER);
         String errorMsg = driver.findElement(By.id("ctl00_MainContent_status")).getText();
 
-        Assert.assertEquals(errorMsg,"Invalid Login or Password");
-        }
+        Assert.assertEquals(errorMsg, "Invalid Login or Password.");
+    }
 
 }
