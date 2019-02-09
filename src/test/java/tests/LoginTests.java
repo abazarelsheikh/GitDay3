@@ -11,12 +11,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 // login tests are maintained here.
 //without Page object approch
 public class LoginTests {
 
     ChromeDriver driver;
+Map<String,String> myMap = new HashMap<String, String>();
 
     // this process to setup the browser
    @BeforeClass
